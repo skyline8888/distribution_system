@@ -420,8 +420,9 @@ Colossus 的设计解决了 GFS 最核心的元数据瓶颈问题，但具体实
 
 ## 参考资料
 
-1. Ghemawat, S., Gobioff, H., & Leung, S. T. (2003). *The Google File System*. SOSP '03.
-2. Shvachko, K., Kuang, H., Radia, S., & Chansler, R. (2010). *The Hadoop Distributed File System*. IEEE MSST 2010.
-3. Google Research Blog — *GFS: Evolution on the Front* (2010)
-4. Apache Hadoop Documentation — HDFS Architecture
-5. Dean, J. & Ghemawat, S. (2004). *MapReduce: Simplified Data Processing on Large Clusters*. OSDI '04.
+1. Ghemawat, S., Gobioff, H., & Leung, S. T. (2003). "The Google File System", SOSP '03.
+2. Shvachko, K., Kuang, H., Radia, S., & Chansler, R. (2010). "The Hadoop Distributed File System", IEEE MSST 2010.
+3. McKusick, M. K. & Quinlan, S. (2009). "GFS: Evolution on Fast-forward", ACM Queue, Vol.7 No.7.
+4. Apache Hadoop Documentation, "HDFS Architecture Guide".
+5. Dean, J. & Ghemawat, S. (2004). "MapReduce: Simplified Data Processing on Large Clusters", OSDI '04.
+
