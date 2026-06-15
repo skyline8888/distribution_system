@@ -67,10 +67,10 @@
 
 | 系统 | 年份 | 核心创新 |
 |------|------|----------|
-| Spanner | 2012 | 全球分布式、TrueTime、Paxos、外部一致性 |
-| CockroachDB | 2015 | 开源 Spanner 替代、Raft、多区域部署 |
-| TiDB | 2016 | 兼容 MySQL、PD 调度、Raft + Percolator 事务 |
-| YugabyteDB | 2017 | PostgreSQL 兼容、Raft、分布式事务 |
+| Spanner | 2012 (论文) / 2017 (Cloud Spanner GA) | 全球分布式、TrueTime、Paxos、外部一致性 |
+| CockroachDB | 2014 (创立) / 2017 (1.0 GA) | 开源 Spanner 替代、Raft、多区域部署 |
+| TiDB | 2015 (开源) / 2017 (1.0 GA) | 兼容 MySQL、PD 调度、Raft + Percolator 事务 |
+| YugabyteDB | 2016 (创立) / 2019 (2.0 GA) | PostgreSQL 兼容、Raft、分布式事务 |
 
 **特点**：分布式 + ACID + SQL，试图兼得
 
@@ -78,7 +78,7 @@
 
 | 系统 | 年份 | 核心创新 |
 |------|------|----------|
-| OceanBase | 2010/2017 开源 | 原生分布式、Paxos、HTAP、TPC-C 记录 |
+| OceanBase | 2010 (内部开发) / 2021 (开源) | 原生分布式、Paxos、HTAP、TPC-C 记录 |
 | PolarDB | 2017 | 阿里云、存算分离、共享存储 |
 | Doris/StarRocks | 2018/2020 | MPP 分析、实时 OLAP、向量化执行 |
 | Snowflake | 2015 | 云原生数仓、存算分离、多集群共享 |
