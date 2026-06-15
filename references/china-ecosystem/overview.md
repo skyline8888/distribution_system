@@ -1,6 +1,6 @@
-# China's Distributed Systems Technology Ecosystem
+# 中国分布式系统技术生态总览
 
-> A comprehensive overview of the key players, technologies, open-source projects, and market dynamics shaping China's distributed systems landscape.
+> 系统性梳理中国核心技术厂商在分布式存储、数据库、中间件等领域的技术布局、开源贡献与市场格局。
 
 ---
 
