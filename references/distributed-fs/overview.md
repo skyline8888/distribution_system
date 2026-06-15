@@ -3,8 +3,8 @@
 ## 演进脉络
 
 ```
-GPFS (1998) → Lustre (2003) → HDFS (2006) → Ceph (2006) → GlusterFS (2007)
-→ JuiceFS (2020) → SeaweedFS (2015) → MinIO (2015) → 3FS (2023+)
+GPFS (1998) → Lustre (2003) → HDFS (2006) → Ceph (2006) → GlusterFS (2005)
+→ Alluxio (2013) → MinIO (2014) → JuiceFS (2018) → 3FS (2025)
 ```
 
 ## 核心驱动力
@@ -40,34 +40,33 @@ GPFS (1998) → Lustre (2003) → HDFS (2006) → Ceph (2006) → GlusterFS (200
 
 **特点**：面向 HPC，追求极致吞吐，架构偏集中化
 
-### 第二代：开源分布式文件系统 (2006-2015)
+### 第二代：开源分布式文件系统 (2005-2015)
 
 | 系统 | 年份 | 核心创新 |
 |------|------|----------|
+| GlusterFS | 2005 (RedHat 2011 收购) | 无中心架构、弹性哈希卷、translator 框架 |
 | HDFS | 2006 | 大文件顺序读写、NameNode/DataNode、rack awareness |
-| Ceph | 2006 | RADOS、CRUSH、统一存储 (文件/块/对象) |
-| GlusterFS | 2007 | 无中心架构、弹性哈希卷、translator 框架 |
+| Ceph | 2006 (论文) / ~2012 (生产就绪) | RADOS、CRUSH、统一存储 (文件/块/对象) |
 
 **特点**：拥抱开源，面向大数据和云，去中心化趋势
 
-### 第三代：云原生轻量存储 (2015-2022)
+### 第三代：云原生轻量存储 (2013-2022)
 
 | 系统 | 年份 | 核心创新 |
 |------|------|----------|
-| JuiceFS | 2020 | 元数据引擎可插拔 (Redis/MySQL/S3) + 对象存储数据层 |
-| SeaweedFS | 2015 | 扁平目录结构、O(1) 定位、Volume Server |
-| MinIO | 2015 | 高性能 S3 兼容、纠删码、Erasure Coding |
-| Alluxio | 2014 | 虚拟分布式存储层、计算缓存、多存储后端 |
+|  Alluxio/Tachyon | 2013 | 虚拟分布式存储层、计算缓存、多存储后端 |
+| MinIO | 2014 | 高性能 S3 兼容、纠删码、Erasure Coding |
+| SeaweedFS | 2014 | 扁平目录结构、O(1) 定位、Volume Server |
+| JuiceFS | 2018 (开源 2021) | 元数据引擎可插拔 (Redis/MySQL/TiKV) + 对象存储数据层 |
 
 **特点**：存算分离、S3 兼容、云原生、轻量部署
 
-### 第四代：新一代高性能文件系统 (2023+)
+### 第四代：新一代高性能文件系统 (2021+)
 
 | 系统 | 年份 | 核心创新 |
 |------|------|----------|
-| 3FS | 2023+ | 低延迟高吞吐、RDMA 优化、NVMe 原生 |
 | Curve | 2021 | 网易开源、分布式块存储、Raft 共识 |
-| OpenZFS 分布式扩展 | 持续 | ZFS 特性 + 分布式能力 |
+| 3FS | 2025 (DeepSeek 开源) | AI 训练优化、RDMA + NVMe、Fire-and-Forget 写入 |
 
 **特点**：AI 训练场景驱动，极致性能，新硬件适配
 
@@ -76,18 +75,18 @@ GPFS (1998) → Lustre (2003) → HDFS (2006) → Ceph (2006) → GlusterFS (200
 | 维度 | 第一代 (GPFS) | 第二代 (Ceph) | 第三代 (JuiceFS) | 第四代 (3FS) |
 |------|---------------|---------------|-------------------|--------------|
 | 架构 | 中心化 MDS | 完全去中心化 | 元数据分离 | 轻量分布式 |
-| 数据分布 | 静态 striping | CRUSH 算法 | 对象存储 | 动态分片 |
+| 数据分布 | 静态 striping | CRUSH 算法 | 对象存储 | CRAQ 链式复制 |
 | 一致性 | 强一致 | 可配置 | 最终/可配置 | 强一致 |
-| 典型吞吐 | GB/s | 10GB/s+ | 依赖后端 | 100GB/s+ |
+| 典型吞吐 | GB/s | 10GB/s+ | 依赖后端 | 6.6 TiB/s (官方测试) |
 | 典型延迟 | ms | ms | 10ms+ | μs-ms |
 | 部署复杂度 | 高 | 高 | 低 | 中 |
 | 主要场景 | HPC | 通用云存储 | 云原生/AI 数据湖 | AI 训练/推理 |
 
 ## 参考资料
 
-- GPFS: Design and Implementation of GPFS (2002)
-- Lustre: A Scalable High-Performance Storage System (2002)
-- Ceph: A Scalable Distributed Object Store (2006)
-- HDFS Architecture documentation
-- JuiceFS: Cloud Native Distributed File System
-- 3FS: 新一代高性能文件系统架构
+- Schmuck & Haskin, "GPFS: A Shared-Disk File System for Large Computing Clusters", FAST 2002.
+- Schwan, "Lustre: Building a File System for 1000-node Clusters", Linux Symposium 2003.
+- Weil et al., "Ceph: A Scalable, High-Performance Distributed File System", OSDI 2006.
+- Shvachko et al., "The Hadoop Distributed File System", IEEE MSST 2010.
+- JuiceFS 官方文档, https://juicefs.com/docs/
+- DeepSeek, "3FS (Fire-Flyer File System)", GitHub, 2025-02. https://github.com/deepseek-ai/3FS
