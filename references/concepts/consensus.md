@@ -757,7 +757,7 @@ Nebula Graph      Raft          图数据库存储层
 
 | 论文 | 作者 | 年份 | 贡献 |
 |------|------|------|------|
-| The Part-Time Parliament | Leslie Lamport | 1998 | Paxos 原始论文 |
+| The Part-Time Parliament | Leslie Lamport | 1989 (提交) / 1998 (发表) | Paxos 原始论文 |
 | Paxos Made Simple | Leslie Lamport | 2001 | Paxos 简化解释 |
 | In Search of an Understandable Consensus Algorithm | Ongaro & Ousterhout | 2014 | Raft 原始论文 |
 | A Simple Totally Ordered Broadcast Protocol | Junqueira et al. | 2008 | ZAB 论文 |
